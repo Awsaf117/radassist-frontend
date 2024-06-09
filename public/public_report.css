@@ -1,0 +1,136 @@
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+html {
+    font-size: unset;
+    background-color: white;
+    padding:0px;
+    margin:0px;
+    
+}
+
+body {
+    font-size: unset; 
+    line-height: unset;
+    background-color: white;
+    padding:0px;
+    margin:0px;
+
+}
+
+
+
+.no-tailwind {
+           
+            font-family: "Roboto", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            width:100vw;
+            height:100vh;
+            overflow-y: scroll;
+        }
+
+        .report-container {
+            max-width: 830px;
+            width: 100%;
+            margin: 20px auto;
+            border: 2px solid #FFD700;
+            padding: 20px;
+            background-color: #fff;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            /* Added for positioning the logo */
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width:100px;
+            display: unset;
+        }
+
+        .qr {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width:130px;
+        }
+
+        .report-header,
+        .report-footer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .report-footer {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .report-details,
+        .report-body,
+        .referring-doctor,
+        .scan-details {
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            color: #4a90e2;
+        }
+
+        h2 {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li:before {
+            content: '•';
+            margin-right: 5px;
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.4;
+            margin: 5px 0;
+        }
+
+        .report-footer p {
+            font-size: 0.8em;
+            color: #000;
+            margin: 5px 0;
+        }
+
+        .hide-toolbar { display:none !important; } 
+        .signature{
+            width:175px;
+        }
+
+        @media screen and (max-width: 830px) {
+            .report-container {
+                width: 95%;
+            }
+
+            .logo {
+                left: 10px;
+                width:60px
+                /* Adjust logo position on smaller screens */
+            }
+
+            .qr {
+                right: 10px;
+                width:80px;
+                /* Adjust logo position on smaller screens */
+            }
+        }

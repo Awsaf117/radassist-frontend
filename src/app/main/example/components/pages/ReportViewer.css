@@ -1,0 +1,9 @@
+.LeftContent {
+	position: fixed;
+	height: 100%;
+	width: 50%;
+}
+
+.Rightcontent {
+	overflow: auto;
+}

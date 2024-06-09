@@ -1,0 +1,82 @@
+{
+  "_from": "dwv",
+  "_id": "dwv@0.27.0",
+  "_inBundle": false,
+  "_integrity": "sha512-Yns0ab6VzMRKJQ64aw5H3cjXpnv0C/J2e1r0Ccc1okI8jnQBVyWufh4XdwRh030pV+JCEiceoKb93cYiDQW3lg==",
+  "_location": "/dwv",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "dwv",
+    "name": "dwv",
+    "escapedName": "dwv",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/dwv/-/dwv-0.27.0.tgz",
+  "_shasum": "d8a654c0595adb3d83487ae68973ca50bacaec59",
+  "_spec": "dwv",
+  "_where": "/home/bs263/Documents/BH/xray-annotation-frontend",
+  "author": {
+    "name": "ivmartel",
+    "email": "ivmartel@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/ivmartel/dwv/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "i18next": "~12.1.0",
+    "i18next-browser-languagedetector": "~3.0.0",
+    "i18next-xhr-backend": "~2.0.0",
+    "jszip": "~3.2.0",
+    "konva": "~2.6.0",
+    "magic-wand-js": "~1.0.0"
+  },
+  "deprecated": false,
+  "description": "DICOM Web Viewer.",
+  "devDependencies": {
+    "docdash": "~1.2.0",
+    "grunt": "~1.0.3",
+    "grunt-cli": "~1.3.2",
+    "grunt-contrib-concat": "~1.0.1",
+    "grunt-contrib-connect": "~2.1.0",
+    "grunt-contrib-copy": "~1.0.0",
+    "grunt-contrib-jshint": "~2.1.0",
+    "grunt-contrib-uglify": "~4.0.0",
+    "grunt-contrib-watch": "~1.1.0",
+    "grunt-coveralls": "~2.0.0",
+    "grunt-jsdoc": "~2.4.0",
+    "grunt-qunit-istanbul": "~1.0.0",
+    "http-server": "^0.12.1",
+    "qunit": "~2.9.1"
+  },
+  "homepage": "https://ivmartel.github.io/dwv/",
+  "keywords": [
+    "DICOM",
+    "medical",
+    "imaging"
+  ],
+  "license": "GPL-3.0",
+  "main": "dist/dwv.min.js",
+  "name": "dwv",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ivmartel/dwv.git"
+  },
+  "scripts": {
+    "build": "grunt build",
+    "dev": "grunt dev",
+    "doc": "grunt doc",
+    "lint": "grunt lint",
+    "test": "grunt test",
+    "test-ci": "grunt test-ci"
+  },
+  "version": "0.27.0"
+}

@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  frontend:
+    build:
+      context: .
+    image: xray-annotation-frontend
+    ports:
+      - 5001:80

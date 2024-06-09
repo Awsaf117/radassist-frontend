@@ -1,0 +1,58 @@
+#dwv {
+  height: 90%; 
+}
+
+/* .layerContainer canvas{
+    width: 100%;
+}
+
+.layerContainer{
+    width: 60% !important;
+} */
+
+
+.button-row {
+  text-align: center;
+}
+
+/* Layers */
+.layerContainer {
+    position: relative; padding: 0;
+    margin: auto; text-align: center; }
+.imageLayer {
+    position: absolute;
+    left: 0px; }
+.drawDiv {
+    position: absolute; pointer-events: none; }
+.joyrideSelect {
+    color: white;
+}
+.joyrideSave {
+    color: white;
+}
+.joyridePred {
+    color: white;
+}
+.joyrideShowNext {
+    color: white;
+}
+.joyrideFullscreen
+{
+    color: white;
+}
+/* drag&drop */
+.dropBox {
+    border: 5px dashed #e8eaf6; /*indigo:light*/
+    margin: auto;
+    text-align: center; vertical-align: middle; }
+.dropBox.hover {
+    border: 5px dashed #3f51b5; /*indigo*/ }
+.sliceRange{
+    vertical-align: middle;
+}
+.ranges{
+    position: absolute;
+    display: block;
+    width: 10%;
+    margin-left: 45%;
+}
