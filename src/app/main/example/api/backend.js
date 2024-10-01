@@ -3,19 +3,20 @@ import { getAccessToken } from './utilities';
 import { v4 as uuidv4 } from 'uuid';
 import { last } from 'lodash';
 
-// export const FACE_AUTH_URL='https://6mqh9yo521.execute-api.ca-central-1.amazonaws.com/a'
-// export const FACE_AUTH_URL='http://103.94.135.157:5010'
-export const FACE_AUTH_URL='https://api.brainlytic.org/face'
+// export const FACE_AUTH_URL = 'https://6mqh9yo521.execute-api.ca-central-1.amazonaws.com/face';
+export const FACE_AUTH_URL = 'http://103.94.135.157:5001/face';
+// export const FACE_AUTH_URL='https://api.brainlytic.org/face'
+// export const FACE_AUTH_URL = 'http://localhost:5002';
 
 let API_BASE_URL = process.env.API_BASE_URL;
 let _S3_BUCKET_NAME = process.env.S3_BUCKET_NAME;
 
-if(!API_BASE_URL){
+if (!API_BASE_URL) {
 	API_BASE_URL = 'https://m5qzbbj3rd.execute-api.ca-central-1.amazonaws.com/a';
 	// API_BASE_URL = 'http://103.94.135.157:5000';
 }
 
-if(!_S3_BUCKET_NAME) {
+if (!_S3_BUCKET_NAME) {
 	_S3_BUCKET_NAME = 'radassist-dev';
 }
 
@@ -62,7 +63,7 @@ const SURVEY_LIST = '/survey-dashboard/surveylist';
 export default class XRayApi {
 	static getPresignedUrl = filename => {
 		const url = API_BASE_URL + PRESIGNED_URL;
-		
+
 		return axios({
 			method: 'GET',
 			url: url,
@@ -76,11 +77,11 @@ export default class XRayApi {
 			responseEncoding: 'utf8'
 		});
 	};
-	
+
 	static userInfo = callbackFunc => {
 		const url = API_BASE_URL + USER_INFO;
 		let apiResponse = { response: null, error: false, msg: '' };
-		
+
 		axios({
 			method: 'GET',
 			url: url,
@@ -90,22 +91,22 @@ export default class XRayApi {
 			responseType: 'json',
 			responseEncoding: 'utf8'
 		})
-		.then(response => {
-			apiResponse.response = response;
-		})
-		.catch(error => {
-			apiResponse.response = error;
-			apiResponse.error = true;
-		})
-		.finally(() => {
-			callbackFunc(apiResponse);
-		});
+			.then(response => {
+				apiResponse.response = response;
+			})
+			.catch(error => {
+				apiResponse.response = error;
+				apiResponse.error = true;
+			})
+			.finally(() => {
+				callbackFunc(apiResponse);
+			});
 	};
-	
+
 	static userSignup = (data, callback) => {
 		const url = API_BASE_URL + USER_SIGNUP;
 		let apiResponse = { response: null, error: false, msg: '' };
-		
+
 		axios({
 			method: 'POST',
 			url: url,
@@ -113,20 +114,20 @@ export default class XRayApi {
 			responseType: 'json',
 			responseEncoding: 'utf8'
 		})
-		.then(response => (apiResponse.response = response))
-		.catch(error => {
-			apiResponse.response = error;
-			apiResponse.error = true;
-		})
-		.finally(() => {
-			callback(apiResponse);
-		});
+			.then(response => (apiResponse.response = response))
+			.catch(error => {
+				apiResponse.response = error;
+				apiResponse.error = true;
+			})
+			.finally(() => {
+				callback(apiResponse);
+			});
 	};
 
 	static userForgotPassword = (data, callback) => {
 		const url = API_BASE_URL + USER_FORGOT_PASSWORD;
 		let apiResponse = { response: null, error: false, msg: '' };
-		
+
 		axios({
 			method: 'POST',
 			url: url,
@@ -134,20 +135,20 @@ export default class XRayApi {
 			responseType: 'json',
 			responseEncoding: 'utf8'
 		})
-		.then(response => (apiResponse.response = response))
-		.catch(error => {
-			apiResponse.response = error;
-			apiResponse.error = true;
-		})
-		.finally(() => {
-			callback(apiResponse);
-		});
+			.then(response => (apiResponse.response = response))
+			.catch(error => {
+				apiResponse.response = error;
+				apiResponse.error = true;
+			})
+			.finally(() => {
+				callback(apiResponse);
+			});
 	};
-	
+
 	static userLogin = (data, callback) => {
 		const url = API_BASE_URL + USER_LOGIN;
 		let apiResponse = { response: null, error: false, msg: '' };
-		
+
 		axios({
 			method: 'POST',
 			url: url,
@@ -158,20 +159,20 @@ export default class XRayApi {
 			responseType: 'json',
 			responseEncoding: 'utf8'
 		})
-		.then(response => (apiResponse.response = response))
-		.catch(error => {
-			apiResponse.response = error;
-			apiResponse.error = true;
-		})
-		.finally(() => {
-			callback(apiResponse);
-		});
+			.then(response => (apiResponse.response = response))
+			.catch(error => {
+				apiResponse.response = error;
+				apiResponse.error = true;
+			})
+			.finally(() => {
+				callback(apiResponse);
+			});
 	};
 
 	static userfaceAuth = (data, callback) => {
 		const url = API_BASE_URL + USER_FACE;
 		let apiResponse = { response: null, error: false, msg: '' };
-		
+
 		axios({
 			method: 'POST',
 			url: url,
@@ -179,20 +180,20 @@ export default class XRayApi {
 			responseType: 'json',
 			responseEncoding: 'utf8'
 		})
-		.then(response => (apiResponse.response = response))
-		.catch(error => {
-			apiResponse.response = error;
-			apiResponse.error = true;
-		})
-		.finally(() => {
-			callback(apiResponse);
-		});
+			.then(response => (apiResponse.response = response))
+			.catch(error => {
+				apiResponse.response = error;
+				apiResponse.error = true;
+			})
+			.finally(() => {
+				callback(apiResponse);
+			});
 	};
-	
+
 	static userSearch = (name, callback) => {
 		const url = API_BASE_URL + USER_SEARCH;
 		let apiResponse = { response: null, error: false, msg: '' };
-		
+
 		axios({
 			method: 'GET',
 			url: url,
@@ -205,25 +206,25 @@ export default class XRayApi {
 			responseType: 'json',
 			responseEncoding: 'utf8'
 		})
-		.then(response => {
-			apiResponse.response = response;
-		})
-		.catch(error => {
-			apiResponse.response = error;
-			apiResponse.error = true;
-		})
-		.finally(() => {
-			callback(apiResponse);
-		});
+			.then(response => {
+				apiResponse.response = response;
+			})
+			.catch(error => {
+				apiResponse.response = error;
+				apiResponse.error = true;
+			})
+			.finally(() => {
+				callback(apiResponse);
+			});
 	};
-	
+
 	static getSignedUrl = (file, callback) => {
 		const fileExtension = file.name.split('.')[1];
 		let fileName = file.name.split('.')[0] + '-' + uuidv4() + '.' + fileExtension;
 		fileName = fileName.replace(/[^\w\d_\-.]+/gi, '');
 		let apiResponse = { response: null, error: false, msg: '' };
 		const url = API_BASE_URL + PRESIGNED_URL;
-		
+
 		axios({
 			method: 'GET',
 			url: url,
@@ -234,22 +235,22 @@ export default class XRayApi {
 				Authorization: localStorage.getItem('accessToken')
 			}
 		})
-		.then(response => {
-			apiResponse.response = response;
-		})
-		.catch(error => {
-			apiResponse.response = error;
-			apiResponse.error = true;
-		})
-		.finally(() => {
-			callback(apiResponse, file);
-		});
+			.then(response => {
+				apiResponse.response = response;
+			})
+			.catch(error => {
+				apiResponse.response = error;
+				apiResponse.error = true;
+			})
+			.finally(() => {
+				callback(apiResponse, file);
+			});
 	};
-	
+
 	static getHospitals = callback => {
 		const url = API_BASE_URL + HOSPITALS;
 		let apiResponse = { response: null, error: false, msg: '' };
-		
+
 		axios({
 			method: 'GET',
 			url: url,
@@ -259,21 +260,21 @@ export default class XRayApi {
 			responseType: 'json',
 			responseEncoding: 'utf8'
 		})
-		//.then(console.log("apiResponse"))
-		.then(response => (apiResponse.response = response))
-		.catch(error => {
-			apiResponse.response = error;
-			apiResponse.error = true;
-		})
-		.finally(() => {
-			callback(apiResponse);
-		});
+			//.then(console.log("apiResponse"))
+			.then(response => (apiResponse.response = response))
+			.catch(error => {
+				apiResponse.response = error;
+				apiResponse.error = true;
+			})
+			.finally(() => {
+				callback(apiResponse);
+			});
 	};
-	
+
 	static createReport = (data, callback) => {
 		const url = API_BASE_URL + REPORT_CREATE;
 		let apiResponse = { response: null, error: false, msg: '' };
-		
+
 		axios({
 			method: 'POST',
 			url: url,
@@ -286,20 +287,20 @@ export default class XRayApi {
 			responseType: 'json',
 			responseEncoding: 'utf8'
 		})
-		.then(response => (apiResponse.response = response))
-		.catch(error => {
-			apiResponse.response = error;
-			apiResponse.error = true;
-		})
-		.finally(() => {
-			callback(apiResponse);
-		});
+			.then(response => (apiResponse.response = response))
+			.catch(error => {
+				apiResponse.response = error;
+				apiResponse.error = true;
+			})
+			.finally(() => {
+				callback(apiResponse);
+			});
 	};
-	
+
 	static getReport = callback => {
 		const url = API_BASE_URL + REPORT_LIST;
 		let apiResponse = { response: null, error: false, msg: '' };
-		
+
 		axios({
 			method: 'GET',
 			url: url,
@@ -309,19 +310,19 @@ export default class XRayApi {
 			responseType: 'json',
 			responseEncoding: 'utf8'
 		})
-		.then(response => (apiResponse.response = response))
-		.catch(error => {
-			apiResponse.response = error;
-			apiResponse.error = true;
-		})
-		.finally(() => {
-			callback(apiResponse);
-		});
+			.then(response => (apiResponse.response = response))
+			.catch(error => {
+				apiResponse.response = error;
+				apiResponse.error = true;
+			})
+			.finally(() => {
+				callback(apiResponse);
+			});
 	};
 	static getUser = callback => {
 		const url = API_BASE_URL + USER_LIST;
 		let apiResponse = { response: null, error: false, msg: '' };
-		
+
 		axios({
 			method: 'GET',
 			url: url,
@@ -331,20 +332,19 @@ export default class XRayApi {
 			responseType: 'json',
 			responseEncoding: 'utf8'
 		})
-		.then(response => (apiResponse.response = response))
-		.catch(error => {
-			apiResponse.response = error;
-			apiResponse.error = true;
-		})
-		.finally(() => {
-			callback(apiResponse);
-		});
+			.then(response => (apiResponse.response = response))
+			.catch(error => {
+				apiResponse.response = error;
+				apiResponse.error = true;
+			})
+			.finally(() => {
+				callback(apiResponse);
+			});
 	};
-	
+
 	static getReportById = (reportId, callbackFunc) => {
 		const url = API_BASE_URL + REPORT_LIST + '/' + reportId;
 		let apiResponse = { response: null, error: false, msg: '' };
-		
 
 		axios({
 			method: 'GET',
@@ -536,8 +536,8 @@ export default class XRayApi {
 				textUrl: data.textUrl,
 				gazeData: data.webgazerPredictions,
 				screenshots: data.screenshots,
-				screenWidth: data.screenWidth, 
-				screenHeight: data.screenHeight, 
+				screenWidth: data.screenWidth,
+				screenHeight: data.screenHeight,
 				xrayviewerCoodinates: data.xrayviewerCoodinates,
 				createdAt: data.createdAt
 			},
@@ -577,7 +577,7 @@ export default class XRayApi {
 			.catch(error => {
 				apiResponse.response = error;
 				apiResponse.error = true;
-			})
+			});
 	};
 	static updateFeedback = (data, callback) => {
 		const url = API_BASE_URL + UPDATE_FEEDBACK;
@@ -635,7 +635,7 @@ export default class XRayApi {
 				callback(apiResponse);
 			});
 	};
-	static saveScreenshot = (data) => {
+	static saveScreenshot = data => {
 		const url = API_BASE_URL + SAVESCREENSHOT;
 		let apiResponse = { response: null, error: false, msg: '' };
 
@@ -659,7 +659,7 @@ export default class XRayApi {
 			.catch(error => {
 				apiResponse.response = error;
 				apiResponse.error = true;
-			})
+			});
 	};
 	static saveText = (data, callback) => {
 		const url = API_BASE_URL + SAVETEXT;
@@ -762,7 +762,7 @@ export default class XRayApi {
 	static serveFeedbackAdmin = (surveyor_uuid, callback) => {
 		const url = API_BASE_URL + SERVE_FEEDBACK_ADMIN;
 		let apiResponse = { response: null, error: false, msg: '' };
-		
+
 		axios({
 			method: 'POST',
 			url: url,
@@ -784,10 +784,10 @@ export default class XRayApi {
 				callback(apiResponse);
 			});
 	};
-	static countSurveyor = (callback) => {
+	static countSurveyor = callback => {
 		const url = API_BASE_URL + COUNT_SURVEYOR;
 		let apiResponse = { response: null, error: false, msg: '' };
-		
+
 		axios({
 			method: 'GET',
 			url: url,
@@ -809,7 +809,7 @@ export default class XRayApi {
 	static serveSurveyorListAdmin = (nextPage, id, limit, callback) => {
 		const url = API_BASE_URL + SERVE_SURVEYOR_LIST;
 		let apiResponse = { response: null, error: false, msg: '' };
-		console.log(id)
+		console.log(id);
 		axios({
 			method: 'POST',
 			url: url,
@@ -887,7 +887,6 @@ export default class XRayApi {
 	};
 
 	static uploadSignature = (file, callback) => {
-		
 		const url = API_BASE_URL + USER_SIGNATURE;
 		let apiResponse = { response: null, error: false, msg: '' };
 		const formData = new FormData();
@@ -1039,7 +1038,7 @@ export default class XRayApi {
 				callback(apiResponse, file);
 			});
 	};
-	static saveHeatmap = (data,callback) => {
+	static saveHeatmap = (data, callback) => {
 		const url = API_BASE_URL + SAVE_HEATMAP;
 		let apiResponse = { response: null, error: false, msg: '' };
 
@@ -1067,7 +1066,7 @@ export default class XRayApi {
 				callback(apiResponse);
 			});
 	};
-	static onCloseSaveHeatmap = (data) => {
+	static onCloseSaveHeatmap = data => {
 		const url = API_BASE_URL + SAVE_HEATMAP;
 		let apiResponse = { response: null, error: false, msg: '' };
 
@@ -1090,7 +1089,7 @@ export default class XRayApi {
 			.catch(error => {
 				apiResponse.response = error;
 				apiResponse.error = true;
-			})
+			});
 	};
 	static captureWebpage = (dcmId, data) => {
 		const url = API_BASE_URL + CAPTURE_WEBPAGE;
@@ -1115,12 +1114,12 @@ export default class XRayApi {
 			.catch(error => {
 				apiResponse.response = error;
 				apiResponse.error = true;
-			})
+			});
 	};
 	static createSurvey = (data, file, callback) => {
 		const url = API_BASE_URL + SURVEY_CREATE;
 		let apiResponse = { response: null, error: false, msg: '' };
-		
+
 		axios({
 			method: 'POST',
 			url: url,
@@ -1146,7 +1145,7 @@ export default class XRayApi {
 			});
 	};
 	static updateSurvey = (survey_id, surveyName, data, callback) => {
-		const url = API_BASE_URL + SURVEY_UPDATE +  "/" + survey_id;
+		const url = API_BASE_URL + SURVEY_UPDATE + '/' + survey_id;
 		let apiResponse = { response: null, error: false, msg: '' };
 
 		axios({
@@ -1177,8 +1176,8 @@ export default class XRayApi {
 				callback(apiResponse);
 			});
 	};
-	static deleteSurvey = (survey_id,callback) => {
-		const url = API_BASE_URL + SURVEY_DELETE + "/" + survey_id;
+	static deleteSurvey = (survey_id, callback) => {
+		const url = API_BASE_URL + SURVEY_DELETE + '/' + survey_id;
 		let apiResponse = { response: null, error: false, msg: '' };
 
 		axios({
@@ -1201,7 +1200,7 @@ export default class XRayApi {
 				callback(apiResponse);
 			});
 	};
-	static getSurveyList = (callback) => {
+	static getSurveyList = callback => {
 		const url = API_BASE_URL + SURVEY_LIST;
 		let apiResponse = { response: null, error: false, msg: '' };
 
@@ -1227,6 +1226,5 @@ export default class XRayApi {
 	};
 }
 
-
-export var  API_BASE_URL_LOCAL = API_BASE_URL;
-export var  S3_BUCKET_NAME = _S3_BUCKET_NAME;
+export var API_BASE_URL_LOCAL = API_BASE_URL;
+export var S3_BUCKET_NAME = _S3_BUCKET_NAME;
